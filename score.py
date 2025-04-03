@@ -3,6 +3,7 @@ from turtle import Turtle
 ALIGNMENT = "center"
 FONT = ("Courier", 20, "normal")
 FONT2 = ("Press Start 2P", 20, "normal")
+FONT3 = ("Press Start 2P", 10, "normal")
 
 
 class Score(Turtle):
@@ -27,3 +28,5 @@ class Score(Turtle):
     def game_over(self):
         self.goto(0, 0)
         self.write("Game Over", align="center", font=FONT2)
+        self.goto(0, -20)
+        self.write("Press Escape to Exit", align="center", font=FONT3)
