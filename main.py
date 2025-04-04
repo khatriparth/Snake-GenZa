@@ -70,3 +70,4 @@ print(f"Your final score is: {score.score}")
 # todo: Add special red food that lasts 10 seconds, and adds blocks depending on how early you eat it.
 # todo: Add levels
 # todo: Add sound!? (idk) it will be good to experience and show on paper but idk how to do that.
+# todo: Add a scoreboard on the left side top of screen: Dynamically tells the next high score to beat.

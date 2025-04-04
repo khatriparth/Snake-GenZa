@@ -1,9 +1,13 @@
 from turtle import Turtle
+import json
 
 ALIGNMENT = "center"
 FONT = ("Courier", 20, "normal")
 FONT2 = ("Press Start 2P", 20, "normal")
 FONT3 = ("Press Start 2P", 10, "normal")
+
+FILE_PATH = "/home/parth/PycharmProjects/PythonProject/Games/Snake/highscores.json"
+HIGHSCORES = []
 
 
 class Score(Turtle):
@@ -30,3 +34,13 @@ class Score(Turtle):
         self.write("Game Over", align="center", font=FONT2)
         self.goto(0, -20)
         self.write("Press Escape to Exit", align="center", font=FONT3)
+        
+    def is_high_score(self):
+        
+        with open("FILE_PATH" "r") as f:
+            data = json.load(f)
+
+        for i in range(len(data)):
+            HIGHSCORES.append(data[f"Highscore{i + 1}"])
+
+        return True
