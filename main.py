@@ -84,7 +84,7 @@ score.update_high_scores(player_name, score.score)
 # todo: reset the game by a key input when game over ## Done
 # todo: move the snake in a random direction every time the game starts. ## Done
 # todo: Add high score keeping mechanism. ## Done
-# todo: Add high score Showing mechanism.
+# todo: Add high score showing mechanism.
 # todo: Add an option to restart the game from the 'game over' screen.
 # todo: Add an option to pause the game.
 # todo: Add hurdles and mazes.

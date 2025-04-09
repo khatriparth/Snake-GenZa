@@ -1,15 +1,15 @@
 from turtle import Turtle
 import random
 
-COORDINATES = [(0, 0), (20, 0), (40, 0)]
+COORDINATES = [(0, 0), (20, 0), (40, 0)] #starting coordinates of 3 blocks
 CHAIN = []
-STEP_DISTANCE = BLOCK_SIZE = 20
+STEP_DISTANCE = BLOCK_SIZE = 20 #to make the movement uniform
 RIGHT = 0
 UP = 90
 LEFT = 180
 DOWN = 270
-DIRECTION = random.choice([UP, DOWN, LEFT, RIGHT])
-HEAD_COLOR = "green"
+DIRECTION = random.choice([UP, DOWN, LEFT, RIGHT]) #to make the snake move in a random direction at the starting of the game
+HEAD_COLOR = "blue"
 
 class Snake:
     def __init__(self):
