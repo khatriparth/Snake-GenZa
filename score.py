@@ -28,13 +28,15 @@ class Score(Turtle):
     def increase_score(self):
         self.score += 1
         self.update_score()
-        
+
     def game_over(self):
         self.goto(0, 0)
         self.write("Game Over", align="center", font=FONT2)
         self.goto(0, -20)
         self.write("Press Escape to Exit", align="center", font=FONT3)
-    
+        self.goto(0, -40)
+        self.write("Press Enter to Play Again", align="center", font=FONT3)
+
     @staticmethod
     def load_high_scores(file_path):
         try:
@@ -44,12 +46,12 @@ class Score(Turtle):
         except (FileNotFoundError, json.JSONDecodeError):
             # Return an empty dictionary if the file doesn't exist or is corrupted
             return {}
-        
+
     def is_high_score(self):
         for score, name in self.high_scores.items():
             if self.score > int(score):
                 return True
-    
+
     def update_high_scores(self, player_name, score):
         self.high_scores = self.load_high_scores(FILE_PATH)
 
@@ -57,11 +59,11 @@ class Score(Turtle):
         scores.append((player_name, self.score))
         scores.sort(key=lambda x: x[1], reverse=True)
         scores = scores[:5]
-        
+
         updated_high_scores = {score : name for score, name in scores}
         with open(FILE_PATH, "w") as score_file:
             score_file.write(json.dumps(updated_high_scores, indent = 4))
-            
+
         if self.score >= scores[-1][1]:
             print("You got a new high score!")
         else:

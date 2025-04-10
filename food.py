@@ -8,7 +8,7 @@ class Food(Turtle):
     def __init__(self):
         super().__init__()
         self.show_food()
-        
+
     def show_food(self):
         self.shape("circle")
         self.color("green")
@@ -16,6 +16,9 @@ class Food(Turtle):
         self.penup()
         self.speed("fastest")
         self.goto(random.randint(X1, Y1), random.randint(X1, Y1))
-        
+
     def move_food(self):
         self.goto(random.randint(X1, Y1), random.randint(X1, Y1))
+
+    def reset_food(self):
+        self.move_food()

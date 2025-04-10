@@ -17,7 +17,7 @@ class Snake:
         self.create_snake()
         self.head = self.chain[0] # declaring head as the first element of the chain
         self.allow_collision = False
-        
+
     def add_block(self, position):
         new_block = Turtle()
         new_block.shape("square")
@@ -26,24 +26,30 @@ class Snake:
         new_block.penup()
         new_block.goto(position)
         self.chain.append(new_block)
-        
+
     def create_snake(self):
         for position in COORDINATES:
             self.add_block(position)
-    
+
     def move_the_body(self):
         for block in range(len(self.chain) - 1, 0, -1):
             new_x_cor = self.chain[block - 1].xcor()
             new_y_cor = self.chain[block - 1].ycor()
             self.chain[block].goto(new_x_cor, new_y_cor)
         self.head.forward(STEP_DISTANCE)
-    
+
     def extend_snake(self):
         self.add_block(self.chain[-1].position())
 
     def enable_collision(self):
         self.allow_collision = True
-        
+
+    def reset_snake(self):
+        for block in self.chain:
+            block.hideturtle()
+        self.chain.clear()
+        self.create_snake()
+        self.head = self.chain[0]
 
 # key controls
     def up(self):
@@ -58,4 +64,3 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
-            
